@@ -1,11 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import DataClima from './components/DataClima';
+
+
+const backgroundImg = require('./assets/image-background.png')
 
 export default function App() {
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <ImageBackground source={backgroundImg} style={styles.background}>
+        <DataClima />
+      </ImageBackground>
     </View>
   );
 }
@@ -13,8 +19,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
+  background: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center'
+  }
 });
